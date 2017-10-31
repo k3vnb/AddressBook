@@ -24,12 +24,13 @@ function resetFields() {
   $("input.new-street").val("");
   $("input.new-city").val("");
   $("input.new-state").val("");
+  $(".goAway").remove();
 }
 
 // user interface logic
 $(document).ready(function() {
   $("#add-address").click(function() {
-    $("#new-addresses").append('<div class="new-address">' +
+    $("#new-addresses").append('<div class="new-address goAway">' +
                                  '<div class="form-group">' +
                                    '<label for="new-street">Street</label>' +
                                    '<input type="text" class="form-control new-street">' +
@@ -61,6 +62,7 @@ $(document).ready(function() {
       var newAddress = new Address(inputtedStreet, inputtedCity, inputtedState);
       newContact.addresses.push(newAddress);
     });
+
 
     $("ul#contacts").append("<li><span class='contact'>" + newContact.fullName() + "</span></li>");
 
